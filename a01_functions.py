@@ -65,11 +65,12 @@ def nb_train(X, y, alpha=1, K=None, C=None):
 
     # Compute class-conditional densities in a class x feature x value array
     # and store them in cls.
-    cls = np.zeros((C, D, K))
-    # YOUR CODE HERE
+    cls = np.zeros((C, D, K)) # macht dreidimensionale Matrix der Größe CxDxK , bei uns 10 x 784 x 256
+    # Valerie: unklar was cls genau abspeichert? Soll hier P(Y/X) abgespeichert werden? 
+    # YOUR CODE HERE (Valerie: noch keine Idee - Stand 19.9)
 
     # Output result
-    return dict(logpriors=np.log(priors), logcls=np.log(cls))
+    return dict(logpriors=np.log(priors), logcls=np.log(cls))  # hier werden logpriors und logcls als neue Variablen definiert
 
 
 # %%
@@ -80,7 +81,7 @@ def nb_predict(model, Xnew):
     ----------
     model : dict
         A Naive Bayes model trained with nb_train.
-    Xnew : nd_array of shape (Nnew,D)
+    Xnew : nd_array of shape (Nnew,D)    
         New data to predict.
 
     Returns
@@ -93,9 +94,9 @@ def nb_predict(model, Xnew):
     logprob : nd_array of shape (Nnew,)
         Log-probability of the label predicted for each new data point.
     """
-    logpriors = model["logpriors"]
+    logpriors = model["logpriors"]  # Definition von logpriors siehe Zeile 73
     logcls = model["logcls"]
-    Nnew = Xnew.shape[0]
+    Nnew = Xnew.shape[0]  # Nnew sind die Anzahl Zeilen des neuen Datensatzes Xnew
     C, D, K = logcls.shape
 
     # Compute the unnormalized log joint probabilities P(Y=c, x_i) of each
