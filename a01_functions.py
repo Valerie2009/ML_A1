@@ -51,13 +51,17 @@ def nb_train(X, y, alpha=1, K=None, C=None):
     """
     N, D = X.shape
     if K is None:
-        K = np.max(X) + 1
+        K = np.max(X) + 1     # hier ist max(X)=255, also K=256
     if C is None:
-        C = np.max(y) + 1
+        C = np.max(y) + 1     # hier ist max(y)=9, also C=10
 
     # Compute class priors and store them in priors
     priors = np.zeros(C)
-    # YOUR CODE HERE
+    # Valerie Idee für Code: prior ist p(y), also die Wahrscheinlichkeit für jede Klasse. 
+    # Bei uns, wie oft die jeweilige Ziffer vorkommt geteilt durch die Gesamtanzahl
+    # priors = for c in range(C):
+        # priors[c] = np.sum(y_flat == c) / N
+    # YOUR CODE HERE (siehe Vorschlag obendrüber (Valerie))
 
     # Compute class-conditional densities in a class x feature x value array
     # and store them in cls.
