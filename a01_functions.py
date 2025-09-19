@@ -60,7 +60,7 @@ def nb_train(X, y, alpha=1, K=None, C=None):
     # Valerie Idee für Code: prior ist p(y), also die Wahrscheinlichkeit für jede Klasse. 
     # Bei uns, wie oft die jeweilige Ziffer vorkommt geteilt durch die Gesamtanzahl
     # priors = for c in range(C):
-        # priors[c] = np.sum(y_flat == c) / N
+        # priors[c] = np.sum(y == c) / N
     # YOUR CODE HERE (siehe Vorschlag obendrüber (Valerie))
 
     # Compute class-conditional densities in a class x feature x value array
